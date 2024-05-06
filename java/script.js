@@ -1,10 +1,11 @@
-// This is just a placeholder. You'll need to implement these features yourself.
+var gif = document.getElementById("gif");
 document.getElementById('reset').addEventListener('click', function() {
     gif.src = "../imgs/NYAN.gif";
 });
 
 document.getElementById('random').addEventListener('click', function() {
-    generateRandomGif();
+  const randomGif = Math.floor(Math.random() * customizationImages.length);
+  gif.src = `../imgs/variations/${customizationImages[randomGif].id}.gif`;
 });
 
 document.getElementById('download').addEventListener('click', function() {
@@ -30,8 +31,18 @@ const customizationImages = document.querySelectorAll('#customizations img');
 
 customizationImages.forEach(image => {
   image.addEventListener('click', () => {
-    if (image.id === 'cz') {
-        gif.src = "../imgs/variations/CZ.gif";
-      }
+    gif.src = `../imgs/variations/${image.id}.gif`;
   });
+});
+
+const music = document.getElementById("music");
+const playButton = document.getElementById("music-button");
+
+playButton.addEventListener("click", () => {
+  music.volume = 0.1;
+  if (music.paused) {
+    music.play();
+  } else {
+    music.pause();
+  }
 });

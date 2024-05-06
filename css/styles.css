@@ -17,6 +17,7 @@ body {
     text-align: center;
     color: white;
     font-family: 'PressStart';
+    margin: 0 auto;
 }
 
 .title {
@@ -75,5 +76,15 @@ button {
   }
 
   #customizations img:hover {
-    transform: scale(1.2); /* enlarge the image by 50% when hovering */
+    transform: scale(1.2);
+  }
+
+  #music-button {
+    position: fixed;
+    top: 50%;
+    right: 225px;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 15px 30px;
+    font-size: 18px;
   }
