@@ -23,7 +23,7 @@ body {
     text-align: center;
     color: white;
     font-family: 'PressStart';
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .gif-container {
@@ -55,9 +55,25 @@ button {
     cursor: pointer;
 }
 
-#customizations {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+.headtext {
+    text-align: center;
+    color: white;
+    font-family: 'PressStart';
+    margin-bottom: 20px;
+    margin-top: 60px;
 }
+
+#customizations img {
+    margin-top: 30px;
+    width: 100px; /* adjust the size to your liking */
+    height: 100px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px;
+    transition: transform 0.4s ease-in-out; /* add some margin for better spacing */
+  }
+
+  #customizations img:hover {
+    transform: scale(1.2); /* enlarge the image by 50% when hovering */
+  }

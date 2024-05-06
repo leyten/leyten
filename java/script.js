@@ -17,21 +17,21 @@ document.getElementById('download').addEventListener('click', function() {
             reader.readAsDataURL(blob);
             reader.onloadend = () => {
                 const base64data = reader.result;
-
-      // Set the href attribute to the base64-encoded string
                 downloadLink.href = base64data;
-
-      // Set the download attribute to specify the filename
                 downloadLink.download = 'NYAN.gif';
-
-      // Append the link to the document body
                 document.body.appendChild(downloadLink);
-
-      // Trigger a click event on the link
                 downloadLink.click();
-
-      // Remove the link from the document body
                 document.body.removeChild(downloadLink);
     };
+  });
+});
+
+const customizationImages = document.querySelectorAll('#customizations img');
+
+customizationImages.forEach(image => {
+  image.addEventListener('click', () => {
+    if (image.id === 'cz') {
+        gif.src = "../imgs/variations/CZ.gif";
+      }
   });
 });
