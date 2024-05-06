@@ -1,0 +1,63 @@
+@font-face {
+    font-family: 'PressStart';
+    src: url('/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #003068;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    text-align: center;
+    color: white;
+    font-family: 'PressStart';
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-family: 'PressStart';
+    margin-bottom: 20px;
+}
+
+.gif-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    left: 205px;
+    margin-bottom: 20px;
+    border: 3px solid;
+    border-color: aliceblue;
+    border-radius: 4px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #003068;
+    color: white;
+    font-family: 'PressStart';
+    border: 3px solid;
+    border-color: aliceblue;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#customizations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
