@@ -1,11 +1,20 @@
+document.getElementById('NYAN').style.border = "2px solid green";
 var gif = document.getElementById("gif");
 document.getElementById('reset').addEventListener('click', function() {
-    gif.src = "../imgs/NYAN.gif";
+    gif.src = "../imgs/variations/NYAN.gif";
+    customizationThemes.forEach(image => {
+      image.style.border = "2px solid white";
+    });
+    document.getElementById('NYAN').style.border = "2px solid green";
+    customizationImages.forEach(image => {
+      image.style.border = "2px solid white";
+    });
+    variation = 'NYAN';
 });
 
 document.getElementById('random').addEventListener('click', function() {
   const randomGif = Math.floor(Math.random() * customizationImages.length);
-  gif.src = `../imgs/variations/${customizationImages[randomGif].id}.gif`;
+  gif.src = `../imgs/variations/NYAN/${customizationImages[randomGif].id}.gif`;
 });
 
 document.getElementById('download').addEventListener('click', function() {
@@ -27,11 +36,31 @@ document.getElementById('download').addEventListener('click', function() {
   });
 });
 
-const customizationImages = document.querySelectorAll('#customizations img');
+const customizationThemes = document.querySelectorAll('#themes img');
+const customizationImages = document.querySelectorAll('#heads img');
+let variation;
+
+customizationThemes.forEach(image => {
+  image.addEventListener('click', () => {
+    customizationThemes.forEach(image => {
+      image.style.border = "2px solid white";
+    });
+    customizationImages.forEach(image => {
+      image.style.border = "2px solid white";
+    });
+    variation = image.id
+    gif.src = `../imgs/variations/${variation}.gif`;
+    document.getElementById(variation).style.border = "2px solid green";
+  });
+});
 
 customizationImages.forEach(image => {
   image.addEventListener('click', () => {
-    gif.src = `../imgs/variations/${image.id}.gif`;
+    customizationImages.forEach(image => {
+      image.style.border = "2px solid white";
+    });
+    gif.src = `../imgs/variations/${variation}/${image.id}.gif`;
+    document.getElementById(image.id).style.border = "2px solid green";
   });
 });
 
@@ -41,8 +70,10 @@ const playButton = document.getElementById("music-button");
 playButton.addEventListener("click", () => {
   music.volume = 0.1;
   if (music.paused) {
+    playButton.innerHTML = "Pause";
     music.play();
   } else {
+    playButton.innerHTML = "Play";
     music.pause();
   }
 });
