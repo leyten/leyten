@@ -69,18 +69,16 @@ customizationImages.forEach(image => {
 });
 
 const music = document.getElementById("music");
-const playButtons = document.querySelectorAll(".music-button");
+const playButton = document.getElementById("music-button");
 
-playButtons.forEach((playButton) => {
+
   playButton.addEventListener("click", () => {
     music.volume = 0.1;
     if (music.paused) {
       playButton.innerHTML = "Pause";
       music.play();
     } else {
-      document.getElementById("music-button-left").innerHTML = "Play";
-      document.getElementById("music-button-right").innerHTML = "Play";
+      playButton.innerHTML = "Play";
       music.pause();
     }
   });
-});
