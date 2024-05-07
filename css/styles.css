@@ -13,6 +13,21 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.gif-container-outer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    z-index: -1;
+}
+  
+.side-gif {
+    width: 150px;
+    height: 1920px;
+}
+
 .container {
     text-align: center;
     color: white;
@@ -101,7 +116,7 @@ button:hover {
     transform: scale(1.2);
   }
 
-  #music-button {
+  #music-button-right {
     position: fixed;
     top: 50%;
     right: 225px;
@@ -113,10 +128,22 @@ button:hover {
     text-align: center;
   }
 
+  #music-button-left {
+    position: fixed;
+    top: 50%;
+    left: 225px;
+    transform: translateY(-50%);
+    z-index: 1;
+    padding: 15px 30px;
+    font-size: 18px;
+    width: 150px;
+    text-align: center;
+  }
+
 .watermark {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 150px;
     font-size: 8px;
     z-index: 0;
 }

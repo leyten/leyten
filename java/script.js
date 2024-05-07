@@ -1,3 +1,5 @@
+let variation = 'NYAN';
+let head;
 document.getElementById('NYAN').style.border = "2px solid green";
 var gif = document.getElementById("gif");
 document.getElementById('reset').addEventListener('click', function() {
@@ -12,9 +14,11 @@ document.getElementById('reset').addEventListener('click', function() {
     variation = 'NYAN';
 });
 
+const parentFolders = ['NYAN', 'SOL'];
 document.getElementById('random').addEventListener('click', function() {
+  const randomParentFolder = parentFolders[Math.floor(Math.random() * parentFolders.length)];
   const randomGif = Math.floor(Math.random() * customizationImages.length);
-  gif.src = `../imgs/variations/NYAN/${customizationImages[randomGif].id}.gif`;
+  gif.src = `../imgs/variations/${randomParentFolder}/${customizationImages[randomGif].id}.gif`;
 });
 
 document.getElementById('download').addEventListener('click', function() {
@@ -38,7 +42,6 @@ document.getElementById('download').addEventListener('click', function() {
 
 const customizationThemes = document.querySelectorAll('#themes img');
 const customizationImages = document.querySelectorAll('#heads img');
-let variation;
 
 customizationThemes.forEach(image => {
   image.addEventListener('click', () => {
@@ -56,24 +59,28 @@ customizationThemes.forEach(image => {
 
 customizationImages.forEach(image => {
   image.addEventListener('click', () => {
+    head = image.id;
     customizationImages.forEach(image => {
       image.style.border = "2px solid white";
     });
-    gif.src = `../imgs/variations/${variation}/${image.id}.gif`;
-    document.getElementById(image.id).style.border = "2px solid green";
+    gif.src = `../imgs/variations/${variation}/${head}.gif`;
+    document.getElementById(head).style.border = "2px solid green";
   });
 });
 
 const music = document.getElementById("music");
-const playButton = document.getElementById("music-button");
+const playButtons = document.querySelectorAll(".music-button");
 
-playButton.addEventListener("click", () => {
-  music.volume = 0.1;
-  if (music.paused) {
-    playButton.innerHTML = "Pause";
-    music.play();
-  } else {
-    playButton.innerHTML = "Play";
-    music.pause();
-  }
+playButtons.forEach((playButton) => {
+  playButton.addEventListener("click", () => {
+    music.volume = 0.1;
+    if (music.paused) {
+      playButton.innerHTML = "Pause";
+      music.play();
+    } else {
+      document.getElementById("music-button-left").innerHTML = "Play";
+      document.getElementById("music-button-right").innerHTML = "Play";
+      music.pause();
+    }
+  });
 });

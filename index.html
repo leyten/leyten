@@ -5,8 +5,12 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
+    <div class="gif-container-outer">
+        <img class="leftside-gif" src="/imgs/media/LeftSide.gif">
+        <img class="rightside-gif" src="/imgs/media/RightSide.gif">
+      </div>
     <div class="container">
-        <div class="title"><h1 id="title">Customize Your Nyan</h1></div>
+        <div class="title"><h1 id="title">Customize Your Nyan V1</h1></div>
         <div class="gif-container">
             <img id="gif" src="/imgs/variations/NYAN.gif">
         </div>
@@ -30,7 +34,8 @@
         </div>
         <div class="watermark"><h1>Made by @LeytenSol on TG</h1></div>
     </div>
-    <button id="music-button">Play</button>
+    <button id="music-button-left" class="music-button">Play</button>
+    <button id="music-button-right" class="music-button">Play</button>
     <audio id="music">
         <source src="NYAN.mp3" type="audio/mp3">
     </audio>
